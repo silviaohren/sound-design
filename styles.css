@@ -1,3 +1,18 @@
+/* Dichiarazione dei font personalizzati */
+@font-face {
+    font-family: 'SVBasicManual';
+    src: url('font/SVBasicManual.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'SVBasicManualBold';
+    src: url('font/SVBasicManual-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 /* Base Styles & Variables */
 :root {
     --primary-color: #be033e;         /* Colore principale (rosso) */
@@ -8,6 +23,8 @@
     --text-color: #510e0c;            /* Colore testo */
     --transition: all 0.3s ease;
     --gradient: linear-gradient(135deg, var(--primary-color), #8e0230);
+    --body-font: 'SVBasicManual', sans-serif;
+    --heading-font: 'SVBasicManualBold', sans-serif;
 }
 
 * {
@@ -21,7 +38,7 @@ html {
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: var(--body-font);
     line-height: 1.6;
     color: var(--text-color);
     background-color: var(--primary-color);
@@ -50,7 +67,8 @@ body {
 
 /* Typography */
 h1, h2, h3, h4 {
-    font-weight: 700;
+    font-family: var(--heading-font);
+    font-weight: normal;
     line-height: 1.2;
 }
 
@@ -96,7 +114,8 @@ section {
     padding: 12px 30px;
     border-radius: 50px;
     text-decoration: none;
-    font-weight: 600;
+    font-family: var(--heading-font);
+    font-weight: normal;
     transition: var(--transition);
     cursor: pointer;
     border: none;
@@ -165,7 +184,7 @@ nav ul li {
 nav ul li a {
     text-decoration: none;
     color: var(--text-color);
-    font-weight: 500;
+    font-weight: normal;
     transition: var(--transition);
     position: relative;
 }
@@ -453,7 +472,7 @@ nav ul li a.active::after {
 .skill span {
     display: block;
     margin-bottom: 5px;
-    font-weight: 500;
+    font-weight: normal;
 }
 
 .skill-bar {
@@ -607,7 +626,7 @@ nav ul li a.active::after {
     padding: 15px;
     border: 1px solid rgba(0, 0, 0, 0.1);
     border-radius: 5px;
-    font-family: inherit;
+    font-family: var(--body-font);
     font-size: 1rem;
     transition: var(--transition);
     color: var(--secondary-color);
