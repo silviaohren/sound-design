@@ -327,7 +327,7 @@ nav ul li a:hover {
 }
 
 .hero-content::before {
-    content: 'SYSTEM READY';
+    content: 'PORTFOLIO';
     position: absolute;
     top: -15px;
     left: 20px;
@@ -532,7 +532,7 @@ nav ul li a:hover {
 }
 
 .project-info::before {
-    content: 'FILE';
+    content: 'FEATURE FILM';
     position: absolute;
     top: -12px;
     left: 20px;
