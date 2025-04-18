@@ -16,10 +16,10 @@
 /* Base Styles & Variables */
 :root {
     --primary-color: #be033e;         /* Colore principale (rosso) */
-    --secondary-color: #510e0c;       /* Colore testo */
+    --secondary-color: #243aa3;       /* Colore testo (BLUE)*/
     --accent-color: #d5f848;          /* Colore hover (verde limone) */
     --dark-color: #2c3e50;            /* Blu scuro */
-    --light-color: #ffffff;           /* Bianco */
+    --light-color: #ccf1e8;           /* verdeacquino */
     --text-color: #510e0c;            /* Colore testo */
     --transition: all 0.3s ease;
     --gradient: linear-gradient(135deg, var(--primary-color), #8e0230);
