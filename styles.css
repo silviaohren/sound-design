@@ -15,12 +15,12 @@
 
 /* Base Styles & Variables */
 :root {
-    --primary-color: #ffffff;         /* BIANCO */
+    --primary-color: #be033e;         /* Rosso */
     --secondary-color: #000000;       /* Nero */
-    --accent-color: #be033e;          /* ROSSO per evidenziare */
+    --accent-color: #ffffff;          /* Bianco per evidenziare */
     --dark-color: #000000;            /* Nero */
     --light-color: #000000;           /* Nero */
-    --text-color: #ffffff;            /* BIANCO per testo */
+    --text-color: #be033e;            /* Rosso per testo */
     --transition: all 0.3s ease;
     --gradient: linear-gradient(135deg, var(--primary-color), #8e0230);
     --body-font: 'SVBasicManual', monospace;
@@ -46,7 +46,6 @@ body {
     position: relative;
 }
 
-
 /* Scanlines effect */
 body::after {
     content: "";
@@ -66,6 +65,19 @@ body::after {
     opacity: 0.15;
 }
 
+/* Custom Cursor */
+.cursor {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--primary-color);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    z-index: 10000;
+    mix-blend-mode: difference;
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
 
 /* Typography */
 h1, h2, h3, h4 {
@@ -130,7 +142,6 @@ p {
     left: 0;
     z-index: -1;
 }
-
 
 /* Layout */
 section {
@@ -582,11 +593,130 @@ nav ul li a:hover {
     border-color: var(--primary-color);
 }
 
+/* Aggiunta di un indicatore YouTube */
+.project-image[style*="youtube"]::before {
+    content: 'VIDEO';
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    padding: 3px 8px;
+    font-size: 0.7rem;
+    font-family: var(--heading-font);
+    z-index: 3;
+    border: 1px solid var(--accent-color);
+}
+
+/* About Section */
+.about {
+    background-color: var(--secondary-color);
+    color: var(--primary-color);
+}
+
+.about-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.about-image {
+    flex: 1;
+}
+
+.image-container {
+    position: relative;
+    border: 2px solid var(--primary-color);
+    padding: 10px;
+}
+
+.image-container::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border: 1px dashed var(--primary-color);
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.image-container img {
+    width: 100%;
+    display: block;
+    filter: grayscale(100%) contrast(120%);
+    transition: var(--transition);
+}
+
+.image-container:hover img {
+    filter: grayscale(0%) contrast(100%);
+}
+
+.about-text {
+    flex: 1;
+}
+
+.skills {
+    margin-top: 30px;
+}
+
+.skill {
+    margin-bottom: 20px;
+}
+
+.skill span {
+    display: block;
+    margin-bottom: 5px;
+    color: var(--primary-color);
+}
+
+.skill-bar {
+    height: 10px;
+    background-color: var(--secondary-color);
+    border: 1px solid var(--primary-color);
+    position: relative;
+}
+
+.skill-level {
+    height: 100%;
+    background-color: var(--primary-color);
+    width: 0;
+    transition: width 1.5s ease;
+}
+
 /* Portfolio Section */
 .portfolio {
     background-color: var(--secondary-color);
-    padding: 80px 8%;
 }
 
-.portfolio h2 {
-    color: var(--
+.portfolio-list {
+    margin-top: 40px;
+}
+
+.portfolio-item {
+    padding: 15px;
+    border-bottom: 1px dashed var(--primary-color);
+    transition: var(--transition);
+}
+
+.portfolio-item:hover {
+    background-color: rgba(190, 3, 62, 0.05);
+}
+
+.portfolio-title {
+    color: var(--accent-color);
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+/* Contact Section */
+.contact {
+    background-color: var(--secondary-color);
+}
+
+.contact-container {
+    display: flex;
+    justify-content: space-between;
+    gap
