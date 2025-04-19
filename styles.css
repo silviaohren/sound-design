@@ -15,12 +15,12 @@
 
 /* Base Styles & Variables */
 :root {
-    --primary-color: #be033e;         /* Rosso */
+    --primary-color: #ffffff;         /* Bianco */
     --secondary-color: #000000;       /* Nero */
-    --accent-color: #ffffff;          /* Bianco per evidenziare */
+    --accent-color: #be033e;          /* Rosso per evidenziare */
     --dark-color: #000000;            /* Nero */
     --light-color: #000000;           /* Nero */
-    --text-color: #be033e;            /* Rosso per testo */
+    --text-color: #ffffff;            /* Bianco per testo */
     --transition: all 0.3s ease;
     --gradient: linear-gradient(135deg, var(--primary-color), #8e0230);
     --body-font: 'SVBasicManual', monospace;
