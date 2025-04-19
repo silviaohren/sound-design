@@ -819,7 +819,6 @@ nav ul li a:hover {
     color: var(--primary-color);
 }
 
-
 /* Responsive design for contact section */
 @media (max-width: 768px) {
     .contact-container {
