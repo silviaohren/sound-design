@@ -457,7 +457,7 @@ nav ul li a:hover {
 
 .project-image {
     height: 0;
-    padding-bottom: 56.25%; /* Questo è il rapporto 16:9 (9/16 = 0.5625 = 56.25%) */
+    padding-bottom: 42.55%; /* Questo è il rapporto 2.35:1 (1/2.35 = 0.4255 = 42.55%) */
     background-size: cover;
     background-position: center;
     position: relative;
