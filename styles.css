@@ -456,11 +456,13 @@ nav ul li a:hover {
 }
 
 .project-image {
-    height: 250px;
+    height: 0;
+    padding-bottom: 56.25%; /* Questo è il rapporto 16:9 (9/16 = 0.5625 = 56.25%) */
     background-size: cover;
     background-position: center;
     position: relative;
     border-bottom: 2px solid var(--primary-color);
+    overflow: hidden;
 }
 
 .project-image::after {
