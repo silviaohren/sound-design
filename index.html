@@ -106,10 +106,17 @@
         /* Contenitore per centrare verticalmente */
         .wave-wrapper {
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             width: 100%;
             padding: 50px 0;
+        }
+        
+        /* Stile per il pulsante centrato */
+        .centered-cta {
+            margin-top: 30px;
+            text-align: center;
         }
     </style>
 </head>
@@ -145,32 +152,6 @@
         <!-- Hero Section con bacheca interattiva -->
         <section id="home" class="hero" data-section="home">
             <div class="sound-board">
-                <!-- Disegno astratto con elementi interattivi -->
-                <div class="sound-node node1" data-text="SOUND DESIGN">
-                    <div class="node-circle"></div>
-                    <div class="node-label">SOUND DESIGN</div>
-                </div>
-                <div class="sound-node node2" data-text="SOUND EDITING">
-                    <div class="node-circle"></div>
-                    <div class="node-label">SOUND EDITING</div>
-                </div>
-                <div class="sound-node node3" data-text="SOUND MIX">
-                    <div class="node-circle"></div>
-                    <div class="node-label">SOUND MIX</div>
-                </div>
-                <div class="sound-node node4" data-text="LOCATION SOUND">
-                    <div class="node-circle"></div>
-                    <div class="node-label">LOCATION SOUND</div>
-                </div>
-                <div class="sound-node node5" data-text="SOUND RESTORATION">
-                    <div class="node-circle"></div>
-                    <div class="node-label">SOUND RESTORATION</div>
-                </div>
-                <div class="sound-node node6" data-text="MUSIC EDITING">
-                    <div class="node-circle"></div>
-                    <div class="node-label">MUSIC EDITING</div>
-                </div>
-                
                 <!-- Linee di connessione tra i nodi -->
                 <svg class="connections" viewBox="0 0 1000 600" preserveAspectRatio="none">
                     <!-- Le linee verranno generate via JavaScript -->
@@ -197,11 +178,12 @@
                         <div class="service-cell"><div class="service-label">AUDIO POST</div></div>
                     </div>
                 </div>
-            </div>
-            
-            <div class="hero-cta">
-                <a href="#projects" class="btn primary-btn">
-                    <span class="code-comment">// </span>Explore my work
-                </a>
+                
+                <!-- Pulsante centrato sotto la finestra PERTURBATION -->
+                <div class="centered-cta">
+                    <a href="#projects" class="btn primary-btn">
+                        <span class="code-comment">// </span>Explore my work
+                    </a>
+                </div>
             </div>
         </section>
