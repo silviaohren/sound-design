@@ -107,7 +107,16 @@
             color: rgba(248, 248, 242, 0.9); /* --text-color con opacità */
             background-color: rgba(24, 24, 37, 0.7);
             opacity: 1;
-            text-shadow: 0 0 5px rgba(255, 95, 86, 0.5); /* --special-accent con opacità */
+            text-shadow: 0 0 0px rgba(255, 95, 86, 0.5); /* --special-accent con opacità */
+        }
+        
+        /* Stile per mostrare SOUND DESIGN quando il mouse è sulle caselle 2, 5 o 8 */
+        .service-cell:nth-child(2):hover ~ .service-cell:nth-child(5) .service-label,
+        .service-cell:nth-child(8):hover ~ .service-cell:nth-child(5) .service-label {
+            color: rgba(248, 248, 242, 0.9); /* --text-color con opacità */
+            background-color: rgba(24, 24, 37, 0.7);
+            opacity: 1;
+            text-shadow: 0 0 0px rgba(255, 95, 86, 0.5); /* --special-accent con opacità */
         }
     </style>
 </head>
@@ -166,7 +175,7 @@
                             <div class="service-label">DIALOGUE EDITING</div>
                         </div>
                         <div class="service-cell">
-                            <div class="service-label">SOUND DESIGN</div>
+                            <div class="service-label"></div>
                         </div>
                         <div class="service-cell">
                             <div class="service-label">LOCATION SOUND</div>
@@ -184,7 +193,7 @@
                             <div class="service-label">MUSIC EDITING</div>
                         </div>
                         <div class="service-cell">
-                            <div class="service-label">SOUND DESIGN</div>
+                            <div class="service-label"></div>
                         </div>
                         <div class="service-cell">
                             <div class="service-label">SOUND RESTORATION</div>
@@ -207,6 +216,43 @@
             const waveContainer = document.getElementById('waveContainer');
             const mouseCursor = document.getElementById('mouseCursor');
             const serviceCells = document.querySelectorAll('.service-cell');
+            const soundDesignCell = document.querySelector('.service-cell:nth-child(5)');
+            
+            // Aggiungi event listener per le caselle 2 e 8 per mostrare SOUND DESIGN
+            const cell2 = document.querySelector('.service-cell:nth-child(2)');
+            const cell8 = document.querySelector('.service-cell:nth-child(8)');
+            
+            cell2.addEventListener('mouseenter', function() {
+                soundDesignCell.querySelector('.service-label').style.opacity = '1';
+                soundDesignCell.querySelector('.service-label').style.color = 'rgba(248, 248, 242, 0.9)';
+                soundDesignCell.querySelector('.service-label').style.backgroundColor = 'rgba(24, 24, 37, 0.7)';
+                soundDesignCell.querySelector('.service-label').style.textShadow = '0 0 5px rgba(255, 95, 86, 0.5)';
+            });
+            
+            cell2.addEventListener('mouseleave', function() {
+                if (!soundDesignCell.matches(':hover') && !cell8.matches(':hover')) {
+                    soundDesignCell.querySelector('.service-label').style.opacity = '';
+                    soundDesignCell.querySelector('.service-label').style.color = '';
+                    soundDesignCell.querySelector('.service-label').style.backgroundColor = '';
+                    soundDesignCell.querySelector('.service-label').style.textShadow = '';
+                }
+            });
+            
+            cell8.addEventListener('mouseenter', function() {
+                soundDesignCell.querySelector('.service-label').style.opacity = '1';
+                soundDesignCell.querySelector('.service-label').style.color = 'rgba(248, 248, 242, 0.9)';
+                soundDesignCell.querySelector('.service-label').style.backgroundColor = 'rgba(24, 24, 37, 0.7)';
+                soundDesignCell.querySelector('.service-label').style.textShadow = '0 0 5px rgba(255, 95, 86, 0.5)';
+            });
+            
+            cell8.addEventListener('mouseleave', function() {
+                if (!soundDesignCell.matches(':hover') && !cell2.matches(':hover')) {
+                    soundDesignCell.querySelector('.service-label').style.opacity = '';
+                    soundDesignCell.querySelector('.service-label').style.color = '';
+                    soundDesignCell.querySelector('.service-label').style.backgroundColor = '';
+                    soundDesignCell.querySelector('.service-label').style.textShadow = '';
+                }
+            });
             
             // Configurazione
             const nodeSpacing = 20; // Spazio tra i nodi
