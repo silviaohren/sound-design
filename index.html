@@ -43,148 +43,9 @@
         <!-- Hero Section con bacheca interattiva -->
         <section id="home" class="hero" data-section="home">
             <div class="sound-board">
-                <!-- Disegno astratto con elementi interattivi -->
-                <div class="sound-node node1" data-text="SOUND DESIGN">
-                    <div class="node-circle"></div>
-                    <div class="node-label">SOUND DESIGN</div>
-                </div>
-                <div class="sound-node node2" data-text="SOUND EDITING">
-                    <div class="node-circle"></div>
-                    <div class="node-label">SOUND EDITING</div>
-                </div>
-                <div class="sound-node node3" data-text="SOUND MIX">
-                    <div class="node-circle"></div>
-                    <div class="node-label">SOUND MIX</div>
-                </div>
-                <div class="sound-node node4" data-text="LOCATION SOUND">
-                    <div class="node-circle"></div>
-                    <div class="node-label">LOCATION SOUND</div>
-                </div>
-                <div class="sound-node node5" data-text="SOUND RESTORATION">
-                    <div class="node-circle"></div>
-                    <div class="node-label">SOUND RESTORATION</div>
-                </div>
-                <div class="sound-node node6" data-text="MUSIC EDITING">
-                    <div class="node-circle"></div>
-                    <div class="node-label">MUSIC EDITING</div>
-                </div>
-                
-                <!-- Linee di connessione tra i nodi -->
-                <svg class="connections" viewBox="0 0 1000 600" preserveAspectRatio="none">
-                    <!-- Le linee verranno generate via JavaScript -->
-                </svg>
-                
-                <!-- Elementi decorativi di sfondo -->
-                <div class="waveform"></div>
-                <div class="code-overlay"></div>
-            </div>
-            
-            <div class="hero-cta">
-                <a href="#projects" class="btn primary-btn">
-                    <span class="code-comment">// </span>Explore my work
-                </a>
-            </div>
-        </section>
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Interactive ASCII Wave with Services</title>
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            width: 100%;
-            height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background-color: #1E1E2E;
-            overflow: hidden;
-            font-family: monospace;
-        }
-        
-        .wave-container {
-            position: relative;
-            width: 600px;
-            height: 300px;
-            border: 1px solid rgba(92, 187, 246, 0.2);
-            overflow: hidden;
-            background-color: rgba(24, 24, 37, 0.8);
-            cursor: none;
-        }
-        
-        .wave-node {
-            position: absolute;
-            width: 1em;
-            height: 1em;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: rgba(92, 187, 246, 0.7);
-            font-size: 12px;
-            transition: color 0.1s ease;
-            user-select: none;
-            z-index: 1;
-        }
-        
-        .wave-node.active-1 { color: rgba(255, 95, 86, 0.9); }
-        .wave-node.active-2 { color: rgba(162, 119, 255, 0.9); }
-        .wave-node.active-3 { color: rgba(98, 232, 132, 0.9); }
-        
-        .mouse-cursor {
-            position: absolute;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: rgba(255, 95, 86, 0.7);
-            transform: translate(-50%, -50%);
-            pointer-events: none;
-            z-index: 100;
-            box-shadow: 0 0 10px rgba(255, 95, 86, 0.5);
-        }
-        
-        .service-grid {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            grid-template-rows: repeat(3, 1fr);
-            z-index: 2;
-        }
-        
-        .service-cell {
-            position: relative;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-        
-        .service-label {
-            color: rgba(255, 255, 255, 0);
-            font-family: monospace;
-            font-size: 14px;
-            font-weight: bold;
-            text-align: center;
-            transition: all 0.3s ease;
-            padding: 5px 10px;
-            border-radius: 3px;
-            opacity: 0;
-            text-shadow: 0 0 5px rgba(255, 95, 86, 0);
-            letter-spacing: 1px;
-            pointer-events: none;
-        }
-        
-        .service-cell:hover .service-label {
-            color: rgba(255, 255, 255, 0.9);
-            background-color: rgba(24, 24, 37, 0.7);
-            opacity: 1;
-            text-shadow: 0 0 5px rgba(255, 95, 86, 0.5);
-        }
-    </style>
+
+                <!-- Disegno astratto con elementi interattivi -->
 
 <!--FINESTRA PERTURBATION SERVICES--->
 
@@ -415,3 +276,123 @@
                     
 
 <!--FINE FINESTRA PERTURBATION SERVICES--->
+
+                
+                <!-- Linee di connessione tra i nodi -->
+                <svg class="connections" viewBox="0 0 1000 600" preserveAspectRatio="none">
+                    <!-- Le linee verranno generate via JavaScript -->
+                </svg>
+                
+                <!-- Elementi decorativi di sfondo -->
+                <div class="waveform"></div>
+                <div class="code-overlay"></div>
+            </div>
+            
+            <div class="hero-cta">
+                <a href="#projects" class="btn primary-btn">
+                    <span class="code-comment">// </span>Explore my work
+                </a>
+            </div>
+        </section>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive ASCII Wave with Services</title>
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: #1E1E2E;
+            overflow: hidden;
+            font-family: monospace;
+        }
+        
+        .wave-container {
+            position: relative;
+            width: 600px;
+            height: 300px;
+            border: 1px solid rgba(92, 187, 246, 0.2);
+            overflow: hidden;
+            background-color: rgba(24, 24, 37, 0.8);
+            cursor: none;
+        }
+        
+        .wave-node {
+            position: absolute;
+            width: 1em;
+            height: 1em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(92, 187, 246, 0.7);
+            font-size: 12px;
+            transition: color 0.1s ease;
+            user-select: none;
+            z-index: 1;
+        }
+        
+        .wave-node.active-1 { color: rgba(255, 95, 86, 0.9); }
+        .wave-node.active-2 { color: rgba(162, 119, 255, 0.9); }
+        .wave-node.active-3 { color: rgba(98, 232, 132, 0.9); }
+        
+        .mouse-cursor {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: rgba(255, 95, 86, 0.7);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+            z-index: 100;
+            box-shadow: 0 0 10px rgba(255, 95, 86, 0.5);
+        }
+        
+        .service-grid {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            grid-template-rows: repeat(3, 1fr);
+            z-index: 2;
+        }
+        
+        .service-cell {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .service-label {
+            color: rgba(255, 255, 255, 0);
+            font-family: monospace;
+            font-size: 14px;
+            font-weight: bold;
+            text-align: center;
+            transition: all 0.3s ease;
+            padding: 5px 10px;
+            border-radius: 3px;
+            opacity: 0;
+            text-shadow: 0 0 5px rgba(255, 95, 86, 0);
+            letter-spacing: 1px;
+            pointer-events: none;
+        }
+        
+        .service-cell:hover .service-label {
+            color: rgba(255, 255, 255, 0.9);
+            background-color: rgba(24, 24, 37, 0.7);
+            opacity: 1;
+            text-shadow: 0 0 5px rgba(255, 95, 86, 0.5);
+        }
+    </style>
+
+
