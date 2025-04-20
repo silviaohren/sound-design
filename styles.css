@@ -270,7 +270,7 @@ p::before {
 
 .hero h1::before {
     content: "class ";
-    color: var(--accent-color);
+    color: var(--text-color);
     font-size: 0.5em;
     position: absolute;
     top: -20px;
