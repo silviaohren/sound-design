@@ -217,7 +217,7 @@ h2::before {
 h3 {
     font-size: 1.4rem;
     margin-bottom: 1rem;
-    color: var(--accent-color);
+    color: var(--text-color);
     font-family: var(--heading-font);
     font-weight: normal;
 }
