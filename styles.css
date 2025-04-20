@@ -96,52 +96,10 @@ body::before {
     transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
-/* Header & Navigation - stile originale */
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    z-index: 1000;
-    transition: var(--transition);
-    background-color: var(--dark-color);
-    border-bottom: 1px solid var(--line-color);
-}
-
-header.scrolled {
-    padding: 15px 8%;
-    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
-}
-
-.logo h1 {
-    font-size: 1.2rem;
-    margin: 0;
-    color: var(--text-color);
-    position: relative;
-    font-family: var(--heading-font);
-}
-
-.logo h1::after {
-    content: '_';
-    animation: blink 1s infinite;
-    color: var(--special-accent);
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-}
-
-nav ul li {
-    margin-left: 30px;
-}
-
+/* Header & Navigation - modificato per usare solo bianco e arancione */
 nav ul li a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--text-color); /* Cambiato da --primary-color a --text-color (bianco) */
     font-weight: normal;
     transition: var(--transition);
     position: relative;
@@ -152,24 +110,29 @@ nav ul li a {
 nav ul li a::before {
     content: '[';
     margin-right: 3px;
-    color: var(--accent-color);
+    color: var(--text-color); /* Cambiato da --accent-color a --text-color (bianco) */
 }
 
 nav ul li a::after {
     content: ']';
     margin-left: 3px;
-    color: var(--accent-color);
+    color: var(--text-color); /* Cambiato da --accent-color a --text-color (bianco) */
 }
 
 nav ul li a:hover {
-    color: var(--special-accent);
+    color: var(--special-accent); /* Mantenuto arancione come highlight color */
+}
+
+nav ul li a:hover::before,
+nav ul li a:hover::after {
+    color: var(--special-accent); /* Aggiunto per cambiare anche le parentesi al passaggio del mouse */
 }
 
 .menu-toggle {
     display: none;
     font-size: 1.5rem;
     cursor: pointer;
-    color: var(--primary-color);
+    color: var(--text-color); /* Cambiato da --primary-color a --text-color (bianco) */
 }
 
 /* Main Content */
