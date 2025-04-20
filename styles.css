@@ -1,14 +1,14 @@
-/* Palette Minimalismo Tecnologico */
+/* Palette Contrasto Audace */
 :root {
-    --primary-color: #FF5A5F;     /* Rosso corallo */
-    --secondary-color: #1A1A1D;   /* Grigio antracite */
-    --accent-color: #8ECAE6;      /* Blu ghiaccio */
-    --highlight-color: #FFD166;   /* Giallo sole */
-    --text-color: #FFFFFF;        /* Bianco */
-    --dark-color: #121214;        /* Grigio più scuro */
+    --primary-color: #E63946;     /* Magenta vibrante */
+    --secondary-color: #000000;   /* Nero puro */
+    --accent-color: #457B9D;      /* Blu cobalto */
+    --highlight-color: #06D6A0;   /* Verde smeraldo */
+    --text-color: #F1FAEE;        /* Bianco avorio */
+    --dark-color: #0A0A0A;        /* Nero quasi puro */
     --light-color: #F8F9FA;       /* Bianco sporco */
     --transition: all 0.3s ease;
-    --gradient: linear-gradient(135deg, var(--primary-color), #FF8A8E);
+    --gradient: linear-gradient(135deg, var(--primary-color), #F27781);
     --body-font: 'SVBasicManual', monospace;
     --heading-font: 'SVBasicManualBold', monospace;
 }
@@ -43,7 +43,7 @@ body::after {
     background: linear-gradient(
         to bottom,
         transparent 50%,
-        rgba(255, 90, 95, 0.05) 50%
+        rgba(230, 57, 70, 0.05) 50%
     );
     background-size: 100% 4px;
     z-index: 9999;
@@ -74,14 +74,14 @@ h1, h2, h3, h4 {
     letter-spacing: 1px;
     opacity: 0.9;
     mix-blend-mode: screen;
-    text-shadow: 0 0 1px rgba(255, 90, 95, 0.5);
+    text-shadow: 0 0 1px rgba(230, 57, 70, 0.5);
 }
 
 h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
-    text-shadow: 2px 2px 0 rgba(26, 26, 29, 0.5);
+    text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.5);
 }
 
 h2 {
@@ -123,7 +123,7 @@ p {
     position: absolute;
     width: 100%;
     height: 30%;
-    background-color: rgba(255, 209, 102, 0.2);
+    background-color: rgba(6, 214, 160, 0.2);
     bottom: 0;
     left: 0;
     z-index: -1;
@@ -199,7 +199,7 @@ header {
 
 header.scrolled {
     padding: 15px 8%;
-    box-shadow: 0 0 15px rgba(255, 90, 95, 0.3);
+    box-shadow: 0 0 15px rgba(230, 57, 70, 0.3);
 }
 
 .logo h1 {
@@ -212,43 +212,7 @@ header.scrolled {
 .logo h1::after {
     content: '_';
     animation: blink 1s infinite;
-    color: var(--accent-color);
+    color: var(--highlight-color);
 }
 
 /* Project Cards */
-.project-card {
-    background-color: var(--dark-color);
-    border: 2px solid var(--primary-color);
-    overflow: hidden;
-    transition: var(--transition);
-    position: relative;
-}
-
-.project-card:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 0 20px rgba(255, 90, 95, 0.3);
-}
-
-.project-tags span {
-    background-color: rgba(142, 202, 230, 0.1);
-    color: var(--accent-color);
-    border: 1px solid var(--accent-color);
-}
-
-/* Contact Form */
-.contact-form input:focus,
-.contact-form textarea:focus {
-    border-color: var(--primary-color);
-    box-shadow: 0 0 8px rgba(255, 90, 95, 0.3);
-}
-
-.social-icon {
-    background-color: var(--dark-color);
-    color: var(--primary-color);
-    border: 1px solid var(--primary-color);
-}
-
-.social-icon:hover {
-    background-color: var(--primary-color);
-    color: var(--dark-color);
-}
