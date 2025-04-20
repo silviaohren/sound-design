@@ -1,14 +1,14 @@
-/* Palette Profondità Cinematografica */
+/* Palette Minimalismo Tecnologico */
 :root {
-    --primary-color: #FF7700;     /* Arancione ambrato */
-    --secondary-color: #0F1C2E;   /* Blu notte */
-    --accent-color: #3A86FF;      /* Blu elettrico */
-    --highlight-color: #CCFF00;   /* Verde acido */
-    --text-color: #E6E6E6;        /* Grigio chiaro */
-    --dark-color: #081018;        /* Blu notte più scuro */
+    --primary-color: #FF5A5F;     /* Rosso corallo */
+    --secondary-color: #1A1A1D;   /* Grigio antracite */
+    --accent-color: #8ECAE6;      /* Blu ghiaccio */
+    --highlight-color: #FFD166;   /* Giallo sole */
+    --text-color: #FFFFFF;        /* Bianco */
+    --dark-color: #121214;        /* Grigio più scuro */
     --light-color: #F8F9FA;       /* Bianco sporco */
     --transition: all 0.3s ease;
-    --gradient: linear-gradient(135deg, var(--primary-color), #FF9E44);
+    --gradient: linear-gradient(135deg, var(--primary-color), #FF8A8E);
     --body-font: 'SVBasicManual', monospace;
     --heading-font: 'SVBasicManualBold', monospace;
 }
@@ -43,7 +43,7 @@ body::after {
     background: linear-gradient(
         to bottom,
         transparent 50%,
-        rgba(255, 119, 0, 0.05) 50%
+        rgba(255, 90, 95, 0.05) 50%
     );
     background-size: 100% 4px;
     z-index: 9999;
@@ -72,16 +72,16 @@ h1, h2, h3, h4 {
     line-height: 1.2;
     text-transform: uppercase;
     letter-spacing: 1px;
-    opacity: 0.85;
+    opacity: 0.9;
     mix-blend-mode: screen;
-    text-shadow: 0 0 1px rgba(255, 119, 0, 0.5);
+    text-shadow: 0 0 1px rgba(255, 90, 95, 0.5);
 }
 
 h1 {
     font-size: 3rem;
     margin-bottom: 1rem;
     color: var(--primary-color);
-    text-shadow: 2px 2px 0 rgba(15, 28, 46, 0.5);
+    text-shadow: 2px 2px 0 rgba(26, 26, 29, 0.5);
 }
 
 h2 {
@@ -114,7 +114,7 @@ p {
     position: relative;
     display: inline-block;
     text-shadow: 1px 1px 3px var(--dark-color);
-    opacity: 0.85;
+    opacity: 0.9;
     mix-blend-mode: screen;
 }
 
@@ -123,7 +123,7 @@ p {
     position: absolute;
     width: 100%;
     height: 30%;
-    background-color: rgba(204, 255, 0, 0.2);
+    background-color: rgba(255, 209, 102, 0.2);
     bottom: 0;
     left: 0;
     z-index: -1;
@@ -199,7 +199,7 @@ header {
 
 header.scrolled {
     padding: 15px 8%;
-    box-shadow: 0 0 15px rgba(255, 119, 0, 0.3);
+    box-shadow: 0 0 15px rgba(255, 90, 95, 0.3);
 }
 
 .logo h1 {
@@ -226,11 +226,11 @@ header.scrolled {
 
 .project-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 0 20px rgba(255, 119, 0, 0.3);
+    box-shadow: 0 0 20px rgba(255, 90, 95, 0.3);
 }
 
 .project-tags span {
-    background-color: rgba(58, 134, 255, 0.1);
+    background-color: rgba(142, 202, 230, 0.1);
     color: var(--accent-color);
     border: 1px solid var(--accent-color);
 }
@@ -239,7 +239,7 @@ header.scrolled {
 .contact-form input:focus,
 .contact-form textarea:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 8px rgba(255, 119, 0, 0.3);
+    box-shadow: 0 0 8px rgba(255, 90, 95, 0.3);
 }
 
 .social-icon {
