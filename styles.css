@@ -117,9 +117,9 @@ header.scrolled {
 }
 
 .logo h1 {
-    font-size: 1.8rem;
+    font-size: 1.2rem;
     margin: 0;
-    color: var(--highlight-color);
+    color: var(--text-color);
     position: relative;
     font-family: var(--heading-font);
 }
@@ -127,7 +127,7 @@ header.scrolled {
 .logo h1::after {
     content: '_';
     animation: blink 1s infinite;
-    color: var(--special-accent);
+    color: var(--special-accent); /* Uso dell'arancione per il cursore lampeggiante */
 }
 
 nav ul {
@@ -141,7 +141,7 @@ nav ul li {
 
 nav ul li a {
     text-decoration: none;
-    color: var(--primary-color);
+    color: var(--text-color);
     font-weight: normal;
     transition: var(--transition);
     position: relative;
