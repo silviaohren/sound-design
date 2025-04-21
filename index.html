@@ -30,8 +30,8 @@
         /* Stili per la finestra PERTURBATION - Aggiornati con la palette master */
         .wave-container {
             position: relative;
-            width: 640px; /* Rimpicciolito del 20% rispetto a 800px */
-            height: 320px; /* Rimpicciolito del 20% rispetto a 400px */
+            width: 640px;
+            height: 320px;
             border: 1px solid rgba(137, 220, 235, 0.2); /* --function-color con opacità */
             overflow: hidden;
             background-color: rgba(24, 24, 37, 0.8);
@@ -46,7 +46,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            color: rgba(110, 115, 141, 0.7); /* Colore grigio con opacità */
+            color: #6E738D; /* Colore grigio per i simboli a riposo */
             font-size: 12px;
             transition: color 0.1s ease;
             user-select: none;
@@ -109,15 +109,6 @@
             opacity: 1;
             text-shadow: 0 0 0px rgba(255, 95, 86, 0.5); /* --special-accent con opacità */
         }
-        
-        /* Stile per mostrare SOUND DESIGN quando il mouse è sulle caselle 2, 5 o 8 */
-        .service-cell:nth-child(2):hover ~ .service-cell:nth-child(5) .service-label,
-        .service-cell:nth-child(8):hover ~ .service-cell:nth-child(5) .service-label {
-            color: rgba(248, 248, 242, 0.9); /* --text-color con opacità */
-            background-color: rgba(24, 24, 37, 0.7);
-            opacity: 1;
-            text-shadow: 0 0 0px rgba(255, 95, 86, 0.5); /* --special-accent con opacità */
-        }
     </style>
 </head>
 <body>
@@ -164,9 +155,7 @@
             
             <!-- Wrapper per la finestra PERTURBATION e il pulsante -->
             <div class="wave-wrapper">
-                <!--FINESTRA PERTURBATION SERVICES--->
                 <div class="wave-container" id="waveContainer">
-                    <!-- I nodi verranno generati via JavaScript -->
                     <div class="mouse-cursor" id="mouseCursor"></div>
                     
                     <!-- Griglia di servizi -->
@@ -201,7 +190,7 @@
                     </div>
                 </div>
                 
-                <!-- Pulsante EXPLORE MY WORK -->
+                <!-- Pulsante centrato sotto la finestra PERTURBATION -->
                 <div class="centered-cta">
                     <a href="#projects" class="btn primary-btn">
                         <span class="code-comment">// </span>Explore my work
@@ -216,221 +205,17 @@
             const waveContainer = document.getElementById('waveContainer');
             const mouseCursor = document.getElementById('mouseCursor');
             const serviceCells = document.querySelectorAll('.service-cell');
-            const soundDesignCell = document.querySelector('.service-cell:nth-child(5)');
-            
-            // Aggiungi event listener per le caselle 2 e 8 per mostrare SOUND DESIGN
-            const cell2 = document.querySelector('.service-cell:nth-child(2)');
-            const cell8 = document.querySelector('.service-cell:nth-child(8)');
-            
-            cell2.addEventListener('mouseenter', function() {
-                soundDesignCell.querySelector('.service-label').style.opacity = '1';
-                soundDesignCell.querySelector('.service-label').style.color = 'rgba(248, 248, 242, 0.9)';
-                soundDesignCell.querySelector('.service-label').style.backgroundColor = 'rgba(24, 24, 37, 0.7)';
-                soundDesignCell.querySelector('.service-label').style.textShadow = '0 0 0px rgba(255, 95, 86, 0.5)';
-            });
-            
-            cell2.addEventListener('mouseleave', function() {
-                if (!soundDesignCell.matches(':hover') && !cell8.matches(':hover')) {
-                    soundDesignCell.querySelector('.service-label').style.opacity = '';
-                    soundDesignCell.querySelector('.service-label').style.color = '';
-                    soundDesignCell.querySelector('.service-label').style.backgroundColor = '';
-                    soundDesignCell.querySelector('.service-label').style.textShadow = '';
-                }
-            });
-            
-            cell8.addEventListener('mouseenter', function() {
-                soundDesignCell.querySelector('.service-label').style.opacity = '1';
-                soundDesignCell.querySelector('.service-label').style.color = 'rgba(248, 248, 242, 0.9)';
-                soundDesignCell.querySelector('.service-label').style.backgroundColor = 'rgba(24, 24, 37, 0.7)';
-                soundDesignCell.querySelector('.service-label').style.textShadow = '0 0 0px rgba(255, 95, 86, 0.5)';
-            });
-            
-            cell8.addEventListener('mouseleave', function() {
-                if (!soundDesignCell.matches(':hover') && !cell2.matches(':hover')) {
-                    soundDesignCell.querySelector('.service-label').style.opacity = '';
-                    soundDesignCell.querySelector('.service-label').style.color = '';
-                    soundDesignCell.querySelector('.service-label').style.backgroundColor = '';
-                    soundDesignCell.querySelector('.service-label').style.textShadow = '';
-                }
-            });
             
             // Configurazione
-            const nodeSpacing = 20; // Spazio tra i nodi
+            const nodeSpacing = 18; // Spazio tra i nodi
             const waveSpeed = 80; // Velocità dell'onda (ms per unità di distanza)
             const maxWaveRadius = 200; // Raggio massimo dell'onda
             const waveIntensity = 2; // Numero di "creste" dell'onda
-            const wavePause = 150; // Pausa tra le onde consecutive (ms)
+            const wavePause = 300; // Pausa tra le onde consecutive (ms)
             
-            // Caratteri ASCII per l'animazione - Aggiornati per usare simboli più coerenti con la palette
+            // Caratteri ASCII per l'animazione
             const asciiChars = [
                 '·', ':', '·', ':', '·', ':', '·', ':', '·', ':',
                 '▁', '▂', '▃', '▄', '▅', '▆', '▇', '█', '▇', '▆', '▅', '▄', '▃', '▂', '▁',
                 '░', '▒', '▓', '█', '▓', '▒', '░',
-                '⠁', '⠉', '⠋', '⠛', '⠟', '⠿', '⠟', '⠛', '⠋', '⠉', '⠁',
-                '○', '◎', '●', '◎', '○'
-            ];
-            
-            let nodes = [];
-            let waveAnimations = [];
-            let gridWidth, gridHeight;
-            let lastWaveTime = 0;
-            let isMouseOver = false;
-            let mouseX = 0, mouseY = 0;
-            let waveInterval = null;
-            
-              // Funzione per creare la griglia di nodi
-    function createGrid() {
-        // Rimuovi i nodi esistenti ma mantieni gli altri elementi
-        const nodesToRemove = document.querySelectorAll('.wave-node');
-        nodesToRemove.forEach(node => node.remove());
-        
-        nodes = [];
-        
-        // Ottieni le dimensioni del contenitore
-        gridWidth = waveContainer.clientWidth;
-        gridHeight = waveContainer.clientHeight;
-        
-        // Calcola il numero di nodi orizzontali e verticali
-        const numCols = Math.floor(gridWidth / 15); // Ridotto lo spazio tra i nodi
-        const numRows = Math.floor(gridHeight / 15); // Ridotto lo spazio tra i nodi
-        
-        // Crea i nodi
-        for (let i = 0; i < numRows; i++) {
-            for (let j = 0; j < numCols; j++) {
-                const x = j * 15 + 7.5; // Aggiustato lo spazio tra i nodi
-                const y = i * 15 + 7.5; // Aggiustato lo spazio tra i nodi
-                
-                const node = document.createElement('div');
-                node.className = 'wave-node';
-                node.style.left = `${x}px`;
-                node.style.top = `${y}px`;
-                
-                // Assegna un carattere ASCII casuale
-                const charIndex = Math.floor(Math.random() * asciiChars.length);
-                node.textContent = asciiChars[charIndex];
-                
-                waveContainer.appendChild(node);
-                
-                nodes.push({
-                    element: node,
-                    x: x,
-                    y: y,
-                    originalChar: node.textContent,
-                    charIndex: charIndex
-                });
-            }
-        }
-    }
-            
-            // Funzione per creare un'onda
-            function createWave(centerX, centerY) {
-                const now = Date.now();
-                
-                // Verifica se è passato abbastanza tempo dall'ultima onda
-                if (now - lastWaveTime < wavePause) {
-                    return;
-                }
-                
-                lastWaveTime = now;
-                
-                // Calcola la distanza di ogni nodo dal centro
-                nodes.forEach(node => {
-                    const dx = node.x - centerX;
-                    const dy = node.y - centerY;
-                    const distance = Math.sqrt(dx * dx + dy * dy);
-                    
-                    // Se il nodo è all'interno del raggio massimo dell'onda
-                    if (distance <= maxWaveRadius) {
-                        // Calcola il ritardo in base alla distanza
-                        const delay = distance * waveSpeed / 100;
-                        
-                        // Crea l'animazione per questo nodo
-                        const animation = setTimeout(() => {
-                            // Calcola l'intensità dell'onda in questo punto
-                            const wavePhase = (distance / 30) * Math.PI * waveIntensity;
-                            const amplitude = Math.cos(wavePhase) * Math.max(0, 1 - distance / maxWaveRadius);
-                            
-                            // Cambia il carattere in base all'ampiezza
-                            if (Math.abs(amplitude) > 0.7) {
-                                node.element.className = 'wave-node active-1';
-                                node.element.textContent = asciiChars[(node.charIndex + 15) % asciiChars.length];
-                            } else if (Math.abs(amplitude) > 0.4) {
-                                node.element.className = 'wave-node active-2';
-                                node.element.textContent = asciiChars[(node.charIndex + 10) % asciiChars.length];
-                            } else if (Math.abs(amplitude) > 0.1) {
-                                node.element.className = 'wave-node active-3';
-                                node.element.textContent = asciiChars[(node.charIndex + 5) % asciiChars.length];
-                            }
-                            
-                            // Ripristina il nodo dopo un po'
-                            setTimeout(() => {
-                                node.element.className = 'wave-node';
-                                node.element.textContent = node.originalChar;
-                            }, 300);
-                        }, delay);
-                        
-                        waveAnimations.push(animation);
-                    }
-                });
-            }
-            
-            // Funzione per gestire il movimento del mouse
-            function handleMouseMove(e) {
-                const rect = waveContainer.getBoundingClientRect();
-                mouseX = e.clientX - rect.left;
-                mouseY = e.clientY - rect.top;
-                
-                // Aggiorna la posizione del cursore personalizzato
-                mouseCursor.style.left = `${mouseX}px`;
-                mouseCursor.style.top = `${mouseY}px`;
-            }
-            
-            // Funzione per gestire l'entrata del mouse
-            function handleMouseEnter() {
-                isMouseOver = true;
-                
-                // Avvia la generazione di onde consecutive
-                if (!waveInterval) {
-                    waveInterval = setInterval(() => {
-                        if (isMouseOver) {
-                            createWave(mouseX, mouseY);
-                        }
-                    }, wavePause);
-                }
-                
-                // Mostra il cursore personalizzato
-                mouseCursor.style.display = 'block';
-            }
-            
-            // Funzione per gestire l'uscita del mouse
-            function handleMouseLeave() {
-                isMouseOver = false;
-                
-                // Nascondi il cursore personalizzato
-                mouseCursor.style.display = 'none';
-                
-                // Ferma la generazione di onde
-                if (waveInterval) {
-                    clearInterval(waveInterval);
-                    waveInterval = null;
-                }
-            }
-            
-            // Crea la griglia iniziale
-            createGrid();
-            
-            // Aggiungi event listeners
-            window.addEventListener('resize', createGrid);
-            waveContainer.addEventListener('mousemove', handleMouseMove);
-            waveContainer.addEventListener('mouseenter', handleMouseEnter);
-            waveContainer.addEventListener('mouseleave', handleMouseLeave);
-            
-            // Nascondi il cursore del sistema all'interno del contenitore
-            waveContainer.style.cursor = 'none';
-            
-            // Nascondi inizialmente il cursore personalizzato
-            mouseCursor.style.display = 'none';
-        });
-    </script>
-</body>
-</html>
+                '⠁', '⠉', '⠋', '⠛', '
