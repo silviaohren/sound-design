@@ -30,8 +30,8 @@
         /* Stili per la finestra PERTURBATION - Aggiornati con la palette master */
         .wave-container {
             position: relative;
-            width: 600px;
-            height: 300px;
+            width: 800px; /* Ingrandito di 1/3 rispetto a 600px */
+            height: 400px; /* Ingrandito di 1/3 rispetto a 300px */
             border: 1px solid rgba(137, 220, 235, 0.2); /* --function-color con opacità */
             overflow: hidden;
             background-color: rgba(24, 24, 37, 0.8);
@@ -278,49 +278,49 @@
             let mouseX = 0, mouseY = 0;
             let waveInterval = null;
             
-            // Funzione per creare la griglia di nodi
-            function createGrid() {
-                // Rimuovi i nodi esistenti ma mantieni gli altri elementi
-                const nodesToRemove = document.querySelectorAll('.wave-node');
-                nodesToRemove.forEach(node => node.remove());
+              // Funzione per creare la griglia di nodi
+    function createGrid() {
+        // Rimuovi i nodi esistenti ma mantieni gli altri elementi
+        const nodesToRemove = document.querySelectorAll('.wave-node');
+        nodesToRemove.forEach(node => node.remove());
+        
+        nodes = [];
+        
+        // Ottieni le dimensioni del contenitore
+        gridWidth = waveContainer.clientWidth;
+        gridHeight = waveContainer.clientHeight;
+        
+        // Calcola il numero di nodi orizzontali e verticali
+        const numCols = Math.floor(gridWidth / 15); // Ridotto lo spazio tra i nodi
+        const numRows = Math.floor(gridHeight / 15); // Ridotto lo spazio tra i nodi
+        
+        // Crea i nodi
+        for (let i = 0; i < numRows; i++) {
+            for (let j = 0; j < numCols; j++) {
+                const x = j * 15 + 7.5; // Aggiustato lo spazio tra i nodi
+                const y = i * 15 + 7.5; // Aggiustato lo spazio tra i nodi
                 
-                nodes = [];
+                const node = document.createElement('div');
+                node.className = 'wave-node';
+                node.style.left = `${x}px`;
+                node.style.top = `${y}px`;
                 
-                // Ottieni le dimensioni del contenitore
-                gridWidth = waveContainer.clientWidth;
-                gridHeight = waveContainer.clientHeight;
+                // Assegna un carattere ASCII casuale
+                const charIndex = Math.floor(Math.random() * asciiChars.length);
+                node.textContent = asciiChars[charIndex];
                 
-                // Calcola il numero di nodi orizzontali e verticali
-                const numCols = Math.floor(gridWidth / nodeSpacing);
-                const numRows = Math.floor(gridHeight / nodeSpacing);
+                waveContainer.appendChild(node);
                 
-                // Crea i nodi
-                for (let i = 0; i < numRows; i++) {
-                    for (let j = 0; j < numCols; j++) {
-                        const x = j * nodeSpacing + nodeSpacing / 2;
-                        const y = i * nodeSpacing + nodeSpacing / 2;
-                        
-                        const node = document.createElement('div');
-                        node.className = 'wave-node';
-                        node.style.left = `${x}px`;
-                        node.style.top = `${y}px`;
-                        
-                        // Assegna un carattere ASCII casuale
-                        const charIndex = Math.floor(Math.random() * asciiChars.length);
-                        node.textContent = asciiChars[charIndex];
-                        
-                        waveContainer.appendChild(node);
-                        
-                        nodes.push({
-                            element: node,
-                            x: x,
-                            y: y,
-                            originalChar: node.textContent,
-                            charIndex: charIndex
-                        });
-                    }
-                }
+                nodes.push({
+                    element: node,
+                    x: x,
+                    y: y,
+                    originalChar: node.textContent,
+                    charIndex: charIndex
+                });
             }
+        }
+    }
             
             // Funzione per creare un'onda
             function createWave(centerX, centerY) {
