@@ -11,6 +11,15 @@
     <!-- Custom Favicon -->
     <link rel="icon" href="audio-editing.png" type="image/x-icon">
     <style>
+
+        /* Nascondiamo le etichette delle sezioni e i numeri di linea */
+        .line-numbers,
+        section::before,
+        [data-section]::before,
+        .section-label {
+            display: none !important;
+        }
+
         /* Stile per il contenitore della finestra PERTURBATION */
         .wave-wrapper {
             display: flex;
