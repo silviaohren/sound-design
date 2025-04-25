@@ -11,15 +11,19 @@
     <!-- Custom Favicon -->
     <link rel="icon" href="audio-editing.png" type="image/x-icon">
     <style>
-        /* Stile per il contenitore della finestra PERTURBATION */
+        /* Stile per il contenitore della finestra PERTURBATION - MODIFICATO */
         .wave-wrapper {
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             width: 100%;
-            padding: 50px 0;
+            padding: 20px 0; /* Ridotto il padding da 50px a 20px */
+            margin-top: -50px; /* Aggiunto margine negativo per spostare verso l'alto */
+            position: relative; /* Aggiunto per un miglior controllo del posizionamento */
+            z-index: 10; /* Assicura che stia sopra ad altri elementi */
         }
+        
         
         /* Stile per il pulsante centrato */
         .centered-cta {
