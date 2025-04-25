@@ -11,14 +11,11 @@
     <!-- Custom Favicon -->
     <link rel="icon" href="audio-editing.png" type="image/x-icon">
     <style>
-        /* Nascondiamo le etichette delle sezioni */
-        section::before, 
+        /* Nascondiamo le etichette delle sezioni e i numeri di linea */
+        .line-numbers,
+        section::before,
         [data-section]::before,
-        .section-label,
-        .section-title-auto,
-        .section-identifier,
-        .line-content,
-        .line-numbers {
+        .section-label {
             display: none !important;
         }
         
@@ -29,10 +26,7 @@
             justify-content: center;
             align-items: center;
             width: 100%;
-            padding: 20px 0;
-            margin-top: -50px;
-            position: relative;
-            z-index: 10;
+            padding: 50px 0;
         }
         
         /* Stile per il pulsante centrato */
@@ -135,13 +129,18 @@
     </style>
 </head>
 <body>
+    <!-- Linee numerate a sinistra (nascoste via CSS) -->
+    <div class="line-numbers">
+        <!-- I numeri di linea verranno generati via JavaScript -->
+    </div>
+    
     <!-- Custom Cursor -->
     <div class="cursor"></div>
     
     <!-- Header -->
     <header>
         <div class="logo">
-            <h1>Silvia Ohren</h1>
+            <h1>Silvia </span>Ohren</h1>
         </div>
         <nav>
             <ul>
@@ -222,18 +221,10 @@
     
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Rimuoviamo eventuali etichette di sezione generate automaticamente
+            // Rimuovi data-section per evitare che le etichette vengano generate
             document.querySelectorAll('section').forEach(section => {
                 section.removeAttribute('data-section');
-                
-                // Rimuoviamo eventuali elementi con classe che potrebbero mostrare etichette
-                const labels = section.querySelectorAll('.section-label, .section-title-auto, .section-identifier');
-                labels.forEach(label => label.remove());
             });
-            
-            // Nascondiamo eventuali numeri di linea
-            const lineNumbers = document.querySelector('.line-numbers');
-            if (lineNumbers) lineNumbers.style.display = 'none';
             
             const waveContainer = document.getElementById('waveContainer');
             const mouseCursor = document.getElementById('mouseCursor');
@@ -384,4 +375,22 @@
                                 node.element.textContent = asciiChars[(node.charIndex + 5) % asciiChars.length];
                             }
                             
-                            // Ripristina il n
+                            // Ripristina il nodo dopo un po'
+                            setTimeout(() => {
+                                node.element.className = 'wave-node';
+                                node.element.textContent = node.originalChar;
+                            }, 300);
+                        }, delay);
+                        
+                        waveAnimations.push(animation);
+                    }
+                });
+            }
+            
+            // Funzione per gestire il movimento del mouse
+            function handleMouseMove(e) {
+                const rect = waveContainer.getBoundingClientRect();
+                mouseX = e.clientX - rect.left;
+                mouseY = e.clientY - rect.top;
+                
+                // Aggiorna la
