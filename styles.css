@@ -39,17 +39,9 @@ body {
     margin: 0;
 }
 
-/* Effetto linee di codice numerate */
+/* Effetto linee di codice numerate - RIMOSSO */
 body::before {
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 100%;
-    background-color: var(--dark-color);
-    border-right: 1px solid var(--line-color);
-    z-index: 0;
+    display: none; /* Nasconde completamente l'effetto */
 }
 
 /* Container principale - limita la larghezza */
@@ -60,40 +52,14 @@ body::before {
     position: relative;
 }
 
-/* Linee numerate a sinistra */
+/* Linee numerate a sinistra - RIMOSSE */
 .line-numbers {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 50px;
-    height: 100%;
-    overflow: hidden;
-    z-index: 1;
-    padding-top: 80px;
-    text-align: right;
+    display: none; /* Nasconde completamente le linee numerate */
 }
 
-.line-numbers span {
-    display: block;
-    padding: 0 10px;
-    color: var(--comment-color);
-    font-size: 0.8rem;
-    line-height: 1.6;
-    user-select: none;
-}
-
-/* Custom Cursor */
+/* Custom Cursor - RIMOSSO */
 .cursor {
-    position: fixed;
-    width: 20px;
-    height: 20px;
-    border: 2px solid var(--primary-color);
-    border-radius: 50%;
-    transform: translate(-50%, -50%);
-    pointer-events: none;
-    z-index: 10000;
-    mix-blend-mode: difference;
-    transition: transform 0.2s ease, background-color 0.2s ease;
+    display: none; /* Nasconde completamente il cursore personalizzato */
 }
 
 /* Header & Navigation - stile originale */
@@ -172,19 +138,19 @@ nav ul li a:hover {
     color: var(--primary-color);
 }
 
-/* Main Content */
+/* Main Content - MODIFICATO */
 main {
     padding-top: 100px;
-    padding-left: 50px; /* Spazio per i numeri di linea */
+    padding-left: 0; /* Rimosso il padding a sinistra */
     position: relative;
 }
 
-/* Sezioni come blocchi di codice */
+/* Sezioni come blocchi di codice - MODIFICATO */
 section {
     margin-bottom: 40px;
     position: relative;
     padding: 20px;
-    border-left: 3px solid var(--line-color);
+    border-left: none; /* Rimosso il bordo a sinistra */
 }
 
 section::before {
@@ -246,13 +212,13 @@ p::before {
     margin-left: -20px;
 }
 
-/* Hero Section */
+/* Hero Section - MODIFICATO */
 .hero {
     height: 100vh;
     display: flex;
     align-items: center;
     justify-content: flex-start;
-    padding-left: 70px;
+    padding-left: 20px; /* Ridotto il padding a sinistra */
     position: relative;
 }
 
@@ -292,6 +258,19 @@ p::before {
     content: "// ";
     color: var(--comment-color);
     margin-left: -20px;
+}
+
+/* AGGIUNTO - Stile per il contenitore della finestra PERTURBATION */
+.wave-wrapper {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px 0;
+    margin-top: -40px;
+    position: relative;
+    z-index: 10;
 }
 
 /* Project Cards in stile blocchi di codice */
@@ -678,4 +657,5 @@ p::before {
 
 .contact-item p {
     color: var(--text-color);
-    font-size: 
+    font-size: 0.9rem;
+}
