@@ -384,23 +384,4 @@
                                 node.element.textContent = asciiChars[(node.charIndex + 5) % asciiChars.length];
                             }
                             
-                            // Ripristina il nodo dopo un po'
-                            setTimeout(() => {
-                                node.element.className = 'wave-node';
-                                node.element.textContent = node.originalChar;
-                            }, 300);
-                        }, delay);
-                        
-                        waveAnimations.push(animation);
-                    }
-                });
-            }
-            
-            // Funzione per gestire il movimento del mouse
-            function handleMouseMove(e) {
-                const rect = waveContainer.getBoundingClientRect();
-                mouseX = e.clientX - rect.left;
-                mouseY = e.clientY - rect.top;
-                
-                // Aggiorna la posizione del cursore personalizzato
-                mouseCursor.style.left = `${mouseX}px
+                            // Ripristina il n
